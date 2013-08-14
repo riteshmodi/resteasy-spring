@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+ 
+ 	<bean id="sampleResource" class="org.resteasy.rest.SampleResource">
+ 	</bean>
+	<bean id="person" class="org.resteasy.model.Person">
+     	<property name="name" value="Jon"></property>
+     	<property name="age" value="25"></property>
+     </bean>
+ 
+</beans>

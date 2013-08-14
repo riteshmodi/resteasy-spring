@@ -1,0 +1,1 @@
+This is swagger integration with resteasy and spring. 
