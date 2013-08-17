@@ -42,6 +42,12 @@
 		<servlet-name>resteasy-servlet</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
+
+  <servlet>
+      <servlet-name>MyCustomBootstrap</servlet-name>
+      <servlet-class>org.resteasy.MyCustomBootstrap</servlet-class>
+      <load-on-startup>1</load-on-startup>
+  </servlet>
 	
 	<servlet>
   		<servlet-name>DefaultJaxrsConfig</servlet-name>
