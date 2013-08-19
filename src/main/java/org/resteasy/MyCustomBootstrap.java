@@ -8,6 +8,6 @@ import javax.servlet.http.HttpServlet;
 
 public class MyCustomBootstrap extends HttpServlet {
   static {
-    ConfigFactory.config().setBasePath("http://something/custom");
+    ConfigFactory.config().setBasePath("http://localhost:8080/spring");
   }
 }
