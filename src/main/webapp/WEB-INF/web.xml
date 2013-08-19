@@ -6,8 +6,8 @@
 	<display-name>Restful Web Application</display-name>
  
   	<context-param> 
-    	<param-name>javax.ws.rs.core.Application</param-name>
-    	<param-value>org.resteasy.rest.SampleResourceApplication</param-value>
+    		<param-name>javax.ws.rs.core.Application</param-name>
+    		<param-value>org.resteasy.rest.SampleResourceApplication</param-value>
   	</context-param>
   
 	<context-param>
@@ -16,8 +16,12 @@
 	</context-param>
  
  	<context-param>
-    	<param-name>resteasy.providers</param-name>
-    	<param-value>org.resteasy.rest.JacksonJsonProvider,com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider,com.wordnik.swagger.jaxrs.listing.ResourceListingProvider</param-value>
+    		<param-name>resteasy.providers</param-name>
+    		<param-value>
+    			org.resteasy.rest.JacksonJsonProvider,
+    			com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider,
+    			com.wordnik.swagger.jaxrs.listing.ResourceListingProvider
+    		</param-value>
   	</context-param>
  
 	<listener>
@@ -46,7 +50,7 @@
   	<servlet>
       		<servlet-name>MyCustomBootstrap</servlet-name>
       		<servlet-class>org.resteasy.MyCustomBootstrap</servlet-class>
-      		<load-on-startup>1</load-on-startup>
+      		<load-on-startup>2</load-on-startup>
   	</servlet>
 	
 	<servlet>
@@ -56,12 +60,11 @@
     			<param-name>api.version</param-name>
     			<param-value>1.0.0</param-value>
   		</init-param>
-  		<!--even if I comment out below init-param after configuring MyCustomBootStrap basepath is not reflecting -->
   		<init-param>
     			<param-name>swagger.api.basepath</param-name>
     			<param-value>http://localhost:8080/resteasy-spring-1</param-value>
   		</init-param>
-  		<load-on-startup>2</load-on-startup>
+  		<load-on-startup>1</load-on-startup>
 	</servlet>
  
 </web-app>
