@@ -1,9 +1,38 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
-	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	
+	<context:component-scan base-package="org.resteasy.rest" />
+
+	<!-- Swagger providers -->
+  	<bean id="apiDeclarationProvider" class="com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider" />
+  	<bean id="resourceListingProvider" class="com.wordnik.swagger.jaxrs.listing.ResourceListingProvider" />
+
+	<!-- Swagger API listing resource -->
+  	<bean id="swaggerResourceJSON" class="com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON" />	
  
- 	<bean id="sampleResource" class="org.resteasy.rest.SampleResource"></bean>
-	<bean id="person" class="org.resteasy.model.Person"></bean>
+ 	<bean id="sampleResource" class="org.resteasy.rest.SampleResource">
+ 		<property name="sampleDAO" ref="sampleDAO"></property>
+ 	</bean>
+	
+	<bean id="sampleDAO" class="org.resteasy.SampleDAO"/>
+	
+	<bean id="person" class="org.resteasy.model.Person"/>
+	
+	<!-- this scans the classes for resources -->
+  	<bean id="swaggerConfig" class="com.wordnik.swagger.jaxrs.config.BeanConfig">
+    		<property name="resourcePackage" value="org.resteasy.rest"/>
+    		<property name="version" value="1.0.0"/>
+    		<property name="basePath" value="http://localhost:8081/resteasy-spring"/>
+    		<property name="title" value="Petstore sample app"/>
+    		<property name="description" value="This is a app."/>
+    		<property name="contact" value="apiteam@wordnik.com"/>
+    		<property name="license" value="Apache 2.0 License"/>
+    		<property name="licenseUrl" value="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+    		<property name="scan" value="true"/>
+  	</bean>
  
 </beans>
