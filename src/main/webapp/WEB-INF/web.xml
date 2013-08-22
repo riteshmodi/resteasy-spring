@@ -5,6 +5,7 @@
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<display-name>Restful Web Application</display-name>
  
+  	<!-- Objective: want to inject these files as beans with the help of Spring
   	<context-param> 
     		<param-name>javax.ws.rs.core.Application</param-name>
     		<param-value>org.resteasy.rest.SampleResourceApplication</param-value>
@@ -22,20 +23,20 @@
     			com.wordnik.swagger.jaxrs.listing.ApiDeclarationProvider,
     			com.wordnik.swagger.jaxrs.listing.ResourceListingProvider
     		</param-value>
-  	</context-param>
+  	</context-param>-->
  
 	<listener>
 		<listener-class>org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap</listener-class>
 	</listener>
  
- 	<context-param>
- 		<param-name>contextConfigLocation</param-name>
- 		<param-value>classpath:sample-spring.xml</param-value>
- 	</context-param>
-	
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>org.jboss.resteasy.plugins.spring.SpringContextLoaderListener</listener-class>
 	</listener>
+	
+	<context-param>
+ 		<param-name>contextConfigLocation</param-name>
+ 		<param-value>classpath*:sample-spring.xml</param-value>
+ 	</context-param>
  
 	<servlet>
 		<servlet-name>resteasy-servlet</servlet-name>
