@@ -54,7 +54,7 @@
       		<load-on-startup>2</load-on-startup>
   	</servlet>
 	
-	<servlet>
+	<!--<servlet>
   		<servlet-name>DefaultJaxrsConfig</servlet-name>
   		<servlet-class>com.wordnik.swagger.jaxrs.config.DefaultJaxrsConfig</servlet-class>
   		<init-param>
@@ -66,6 +66,6 @@
     			<param-value>http://localhost:8080/resteasy-spring-1</param-value>
   		</init-param>
   		<load-on-startup>1</load-on-startup>
-	</servlet>
+	</servlet>-->
  
 </web-app>
