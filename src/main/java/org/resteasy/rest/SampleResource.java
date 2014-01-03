@@ -24,12 +24,6 @@ public class SampleResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	@ApiOperation(value="message print",response=Person.class)
 	public List<Person> printPerson() {
-		/*Person person1 = new Person();
-		person1.setName("Ramesh");
-		person1.setAge(26);
-		//return context.getBean(Person.class);
-		return person1;*/
-		
 		return sampleDAO.getAllPersons();
 	}
 	
