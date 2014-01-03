@@ -9,10 +9,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<servlet-api-version>3.0</servlet-api-version>
-		<spring.version>3.1.2.RELEASE</spring.version>
-		<guava-version>13.0.1</guava-version>
-		<swagger-version>1.3.0</swagger-version>
+		<servlet-api-version>2.5</servlet-api-version>
+		<spring-version>3.1.2.RELEASE</spring-version>
+        <swagger-version>1.3.0</swagger-version>
         <jackson-version>1.9.2</jackson-version>
         <jax-rs-version>1.1.1</jax-rs-version>
         <json4s-jackson-version>3.2.4</json4s-jackson-version>
@@ -32,16 +31,6 @@
 
 		<!-- JBoss RESTEasy -->
 		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${guava-version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>${javassist-version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxrs</artifactId>
 			<version>${resteasy-version}</version>
@@ -56,6 +45,7 @@
 			<artifactId>resteasy-jackson-provider</artifactId>
 			<version>${resteasy-version}</version>
 		</dependency>
+		<!-- other dependency -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-jaxrs</artifactId>
@@ -66,6 +56,7 @@
 			<artifactId>jsr311-api</artifactId>
 			<version>${jax-rs-version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.json4s</groupId>
 			<artifactId>json4s-jackson_2.9.1-1</artifactId>
@@ -96,14 +87,6 @@
 			<artifactId>paranamer</artifactId>
 			<version>${paranamer-version}</version>
 		</dependency>
-		<!-- <dependency> <groupId>com.fasterxml.jackson.jaxrs</groupId> <artifactId>jackson-jaxrs-json-provider</artifactId> 
-			<version>2.2.1</version> </dependency> -->
-		<!-- swagger -->
-		<dependency>
-			<groupId>com.wordnik</groupId>
-			<artifactId>swagger-jersey-jaxrs_2.9.1</artifactId>
-			<version>${swagger-version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.scala-lang</groupId>
 			<artifactId>scala-library</artifactId>
@@ -115,11 +98,27 @@
 			<version>${reflections-version}</version>
 		</dependency>
 		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>${javassist-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scannotation</groupId>
+			<artifactId>scannotation</artifactId>
+			<version>${scannotation-version}</version>
+		</dependency>
+		<!-- swagger -->
+		<dependency>
 			<groupId>com.wordnik</groupId>
-			<artifactId>swagger-jaxrs_2.9.1</artifactId>
+			<artifactId>swagger-jersey-jaxrs_2.9.1</artifactId>
 			<version>${swagger-version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.wordnik</groupId>
 			<artifactId>swagger-annotations_2.9.1</artifactId>
@@ -131,69 +130,55 @@
 			<version>${swagger-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>${servlet-api-version}</version>
-			<scope>provided</scope>
+			<groupId>com.wordnik</groupId>
+			<artifactId>swagger-jaxrs_2.9.1</artifactId>
+			<version>${swagger-version}</version>
 		</dependency>
-
 		<!-- Spring 3 dependencies -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-aop</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-asm</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-expression</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
+			<version>${spring-version}</version>
 		</dependency>
-		
 		<dependency>
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>${javassist-version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring-version}</version>
 		</dependency>
-
 		<dependency>
-			<groupId>org.scannotation</groupId>
-			<artifactId>scannotation</artifactId>
-			<version>${scannotation-version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-asm</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring-version}</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -211,8 +196,7 @@
 					<webXml>src\main\webapp\WEB-INF\web.xml</webXml>
 					<packagingExcludes>**/web.xml</packagingExcludes>
 					<outputDirectory>D:\jboss-as-7.1.1.Final\standalone\deployments</outputDirectory>
-					<!-- <outputDirectory>D:\Program Files\Apache Software Foundation\Apache 
-						Tomcat 7.0.14\webapps</outputDirectory> -->
+					<!-- <outputDirectory>/home/cyber/jboss-as-7.1.1.Final/standalone/deployments</outputDirectory> -->
 				</configuration>
 			</plugin>
 		</plugins>
