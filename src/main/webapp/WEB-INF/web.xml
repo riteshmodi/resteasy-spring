@@ -45,7 +45,8 @@
  
 	<servlet-mapping>
 		<servlet-name>resteasy-servlet</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/person/*</url-pattern>
+		<url-pattern>/api-docs/*</url-pattern>
 	</servlet-mapping>
 
   	<servlet>
